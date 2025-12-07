@@ -87,3 +87,84 @@ Este arquivo torna a página "viva".
 -   Tente mudar as cores no `style.css` (variável `--bg-gradient`).
 -   Quebre a conexão propositalmente (mude a senha no `.env`) e veja o tratamento de erro na tela.
 -   Tente adicionar um novo campo na resposta da API no `server.js` e mostre-o no `index.html`.
+# Projeto: Conexão Node.js com Banco de Dados MySQL
+
+Este é um projeto de exemplo que demonstra como conectar uma aplicação web, construída com **Node.js** e **Express**, a um banco de dados **MySQL**. A interface do usuário (frontend) é criada com HTML, CSS e JavaScript puro.
+
+## 🎯 Objetivo
+
+O objetivo principal é ilustrar o fluxo completo de uma aplicação web moderna:
+
+1.  **Frontend**: Interage com o usuário.
+2.  **Backend**: Atua como intermediário, processando requisições e se comunicando com o banco de dados.
+3.  **Banco de Dados**: Armazena os dados da aplicação.
+
+## 🛠️ Tecnologias Utilizadas
+
+-   **Backend**:
+    -   **Node.js**: Ambiente de execução para JavaScript no servidor.
+    -   **Express.js**: Framework para criar o servidor web e as rotas da API.
+    -   **mysql2/promise**: Driver para conectar ao MySQL de forma assíncrona (`async/await`).
+    -   **dotenv**: Para gerenciar variáveis de ambiente (credenciais do banco) de forma segura.
+
+-   **Frontend**:
+    -   HTML5
+    -   CSS3
+    -   JavaScript (Vanilla) com `fetch` para requisições à API.
+
+## 📂 Estrutura de Arquivos
+
+-   `server.js`: O coração do backend. Cria o servidor Express, define as rotas da API e serve os arquivos do frontend.
+-   `db.js`: Responsável exclusivamente pela lógica de conexão com o banco de dados.
+-   `index.html`: A página web que o usuário vê.
+-   `app.js`: O JavaScript do frontend, que faz a chamada para a API do backend e atualiza a página.
+-   `style.css`: A folha de estilos da página.
+-   `.env`: Arquivo para armazenar as variáveis de ambiente (não deve ser enviado para o repositório).
+-   `package.json`: Define as dependências e scripts do projeto.
+
+## 🚀 Como Rodar o Projeto
+
+Para executar este projeto em sua máquina local, siga os passos abaixo.
+
+### Pré-requisitos
+
+-   [Node.js](https://nodejs.org/) instalado.
+-   Um servidor MySQL em execução.
+
+### Passos
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone <url-do-repositorio>
+    cd <pasta-do-projeto>/00
+    ```
+
+2.  **Instale as dependências:**
+    Execute o comando abaixo no terminal para instalar os pacotes definidos no `package.json`.
+    ```bash
+    npm install
+    ```
+
+3.  **Configure as Variáveis de Ambiente:**
+    -   Crie um arquivo chamado `.env` na pasta `00`.
+    -   Copie o conteúdo do arquivo `.env.example` (se existir) ou adicione as seguintes variáveis, preenchendo com suas credenciais do MySQL:
+        ```
+        DB_HOST=localhost
+        DB_USER=root
+        DB_PASSWORD=sua_senha_aqui
+        DB_NAME=seu_banco_de_dados_aqui
+        DB_PORT=3306
+        ```
+
+4.  **Inicie o Servidor:**
+    Execute o comando para iniciar o servidor Node.js.
+    ```bash
+    npm start
+    ```
+    O terminal deverá exibir a mensagem: `Servidor rodando em http://localhost:3000`.
+
+5.  **Acesse a Aplicação:**
+    Abra seu navegador e acesse a URL:
+    [http://localhost:3000](http://localhost:3000)
+
+A página irá carregar e testar automaticamente a conexão com o banco de dados, exibindo o resultado na tela.
