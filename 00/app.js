@@ -14,7 +14,7 @@ async function checkConnection() {
         const data = await response.json();
 
         if (response.ok && data.success) {
-            setSuccessState(data.message);
+            setSuccessState(data.message, data.dbName);
         } else {
             setErrorState(data.message || 'Erro desconhecido ao conectar.');
         }
@@ -33,12 +33,12 @@ function setLoadingState() {
     retryBtn.style.opacity = '0.5';
 }
 
-function setSuccessState(message) {
+function setSuccessState(message, dbName) {
     statusCard.classList.add('success');
     loader.classList.add('hidden');
     statusIcon.classList.remove('hidden');
     statusIcon.innerHTML = '✅'; // Emoji simples, mas eficaz
-    statusTitle.textContent = 'Conectado!';
+    statusTitle.textContent = `Conectado ao '${dbName}'!`;
     statusMessage.textContent = message;
     retryBtn.disabled = false;
     retryBtn.style.opacity = '1';

@@ -13,10 +13,11 @@ app.use(express.static('.')); // Serve arquivos estáticos do diretório atual
 // Rota para testar a conexão
 app.get('/api/status', async (req, res) => {
     const result = await testConnection();
+    const responseData = { ...result, dbName: process.env.DB_NAME };
     if (result.success) {
-        res.status(200).json(result);
+        res.status(200).json(responseData);
     } else {
-        res.status(500).json(result);
+        res.status(500).json(responseData);
     }
 });
 
